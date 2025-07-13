@@ -1,32 +1,27 @@
-# Multi-stage build for maximum security
-# Build stage
-FROM python:3.11-alpine as builder
+# Python FastAPI service
+FROM python:3.11-alpine
 
-# Install build dependencies
+# Install system dependencies
 RUN apk add --no-cache gcc musl-dev
 
-# Create virtual environment and install dependencies
-COPY requirements.txt .
-RUN python -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Runtime stage - Distroless
-FROM gcr.io/distroless/python3-debian11
-
-# Copy virtual environment from builder
-COPY --from=builder /opt/venv /opt/venv
-
-# Copy application code
-COPY . /app
+# Create app directory
 WORKDIR /app
 
-# Set PATH to use virtual environment
-ENV PATH="/opt/venv/bin:$PATH"
-ENV PYTHONPATH="/app"
+# Copy requirements first for better caching
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY . .
 
 # Expose port
 EXPOSE 8000
 
-# Start the application (no shell available in distroless)
-CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD python healthcheck.py || exit 1
+
+# Start the application
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]
