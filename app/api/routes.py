@@ -3,15 +3,15 @@ from typing import Dict, Any
 import time
 import logging
 
-from app.config.settings import get_settings, Settings
-from app.models.requests import CategorizationRequest, BulkCategorizationRequest
-from app.models.responses import (
+from config.settings import get_settings, Settings
+from models.requests import CategorizationRequest, BulkCategorizationRequest
+from models.responses import (
     CategorizationResponse, 
     BulkCategorizationResponse,
     HealthCheckResponse,
     ErrorResponse
 )
-from app.services.categorization_service import CategorizationService
+from services.categorization_service import CategorizationService
 
 # Create router instance
 router = APIRouter()

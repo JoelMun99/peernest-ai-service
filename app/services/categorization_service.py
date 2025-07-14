@@ -11,9 +11,9 @@ import logging
 from typing import Dict, List, Optional, Any
 from datetime import datetime
 
-from app.core.groq_client import GroqClient, GroqClientError
-from app.models.requests import CategorizationRequest
-from app.models.responses import (
+from core.groq_client import GroqClient, GroqClientError
+from models.requests import CategorizationRequest
+from models.responses import (
     CategorizationResponse, 
     CategoryConfidence, 
     ProcessingMetrics,

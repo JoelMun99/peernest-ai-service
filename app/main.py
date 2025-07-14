@@ -12,9 +12,9 @@ import logging
 import time
 from contextlib import asynccontextmanager
 
-from app.config.settings import get_settings
-from app.api.routes import router
-from app.services.categorization_service import CategorizationService
+from config.settings import get_settings
+from api.routes import router
+from services.categorization_service import CategorizationService
 
 
 # Configure logging

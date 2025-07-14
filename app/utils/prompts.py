@@ -8,8 +8,8 @@ categorization of mental health struggles into PeerNest subcategories.
 """
 
 from typing import List, Dict, Any
-from app.utils.categories import get_category_hierarchy
-from app.utils.fallback_keywords import get_crisis_categories
+from utils.categories import get_category_hierarchy
+from utils.fallback_keywords import get_crisis_categories
 
 
 class PromptEngineer:

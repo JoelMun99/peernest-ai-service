@@ -12,7 +12,7 @@ import logging
 from typing import Dict, Any, Optional, List
 from datetime import datetime, timedelta
 
-from app.config.settings import Settings
+from config.settings import Settings
 
 logger = logging.getLogger(__name__)
 

@@ -14,7 +14,7 @@ import logging
 from groq import AsyncGroq
 from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
-from app.config.settings import Settings
+from config.settings import Settings
 
 logger = logging.getLogger(__name__)
 

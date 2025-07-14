@@ -10,8 +10,8 @@ import logging
 from typing import Dict, List, Tuple, Any
 from collections import defaultdict
 
-from app.config.settings import Settings
-from app.utils.fallback_keywords import get_fallback_keywords, get_crisis_categories
+from config.settings import Settings
+from utils.fallback_keywords import get_fallback_keywords, get_crisis_categories
 
 logger = logging.getLogger(__name__)
 
