@@ -206,6 +206,6 @@ if __name__ == "__main__":
     logger.info(f"Starting server on {api_config['host']}:{api_config['port']}")
     
     uvicorn.run(
-        "app.main:app",
+        "main:app",
         **api_config
     )
