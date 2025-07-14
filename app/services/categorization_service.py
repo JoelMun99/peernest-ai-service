@@ -19,13 +19,13 @@ from models.responses import (
     ProcessingMetrics,
     ErrorResponse
 )
-from app.services.fallback_service import FallbackService
-from app.services.redis_cache_service import RedisCacheService
-from app.services.caching_service import cache_metrics
-from app.services.monitoring_service import performance_monitor
-from app.config.settings import Settings
-from app.utils.categories import get_all_subcategories, get_main_category_for_subcategory
-from app.utils.prompts import PromptEngineer
+from services.fallback_service import FallbackService
+from services.redis_cache_service import RedisCacheService
+from services.caching_service import cache_metrics
+from services.monitoring_service import performance_monitor
+from config.settings import Settings
+from utils.categories import get_all_subcategories, get_main_category_for_subcategory
+from utils.prompts import PromptEngineer
 
 logger = logging.getLogger(__name__)
 
