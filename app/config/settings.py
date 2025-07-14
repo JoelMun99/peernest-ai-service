@@ -125,6 +125,7 @@ class Settings(BaseSettings):
         """Pydantic configuration."""
         env_file = ".env"
         env_file_encoding = "utf-8"
+        extra = "ignore"  # Allow extra environment variables from Coolify
         case_sensitive = False
         
         # Allow environment variables to override defaults
